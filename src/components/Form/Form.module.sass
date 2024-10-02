@@ -1,0 +1,38 @@
+.personForm
+  max-width: 600px
+  margin: 0 auto
+  padding: 20px
+  border-radius: 5px
+
+  h1
+    text-align: left
+
+  .formGrid
+    display: flex
+    flex-direction: column
+
+  .twoElements
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+  .submitButton
+    display: block
+    width: 280px
+    height: 60px
+    padding: 10px
+    background-color: #44b766
+    color: white
+    border: none
+    border-radius: 5px
+    cursor: pointer
+    font-size: 18px
+    margin-left: 320px
+
+    &:hover
+      background-Color: #044b1a
+      transition: all 0.2s
+
+    &:disabled
+      background-color: #ccc
+      cursor: not-allowed

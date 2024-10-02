@@ -1,38 +1,92 @@
-.App {
-  text-align: center;
+/* Стили для react-datepicker */
+.react-datepicker {
+  border: none !important;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.react-datepicker__header {
+  background-color: #ffffff !important;
+  border-bottom: none !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.react-datepicker__current-month {
+  line-height: 24px;
+  padding: 10px !important;
+  text-transform: capitalize !important;
+  border-bottom: 1px solid #b8b6b6 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.react-datepicker__navigation {
+  top: 18px;
 }
 
-.App-link {
-  color: #61dafb;
+.react-datepicker__navigation--previous,
+.react-datepicker__navigation--next {
+  border: none !important;
+  background: transparent !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.react-datepicker__navigation--previous::before,
+.react-datepicker__navigation--next::before {
+  color: #44b766 !important;
+}
+
+.react-datepicker__navigation--previous {
+  top: 15px !important;
+}
+
+.react-datepicker__navigation--next {
+  top: 15px !important;
+}
+
+.react-datepicker__day-name {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  color: #8e8e93 !important;
+  text-transform: uppercase !important;
+  padding-top: 10px !important;
+}
+
+.react-datepicker__day {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #323232;
+  width: 32px;
+  margin: 0 0 8px;
+  border-radius: 4px;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f2f2f2;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #44b766 !important;
+  color: #ffffff !important;
+  border-radius: 15px !important;
+}
+
+.react-datepicker__day--outside-month {
+  color: #b8b6b6 !important;
+}
+
+.react-datepicker__triangle {
+  position: absolute;
+  transform: translateX(-50%) !important;
+  left: 212px !important;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ffffff;
+  border-top: none;
+  box-shadow: none;
+}
+
+.react-datepicker-popper {
+  left: 20px !important;
+  top: -15px !important;
 }
