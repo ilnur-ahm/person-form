@@ -5,30 +5,8 @@ import DateInput from "../../atoms/DateInput/DateInput";
 import EmailInput from "../../atoms/EmailInput/EmailInput";
 import GenderInput from "../../atoms/GenderInput/GenderInput";
 import PhoneInput from "../../atoms/PhoneInput/PhoneInput";
-
-interface FormData {
-  lastName: string;
-  firstName: string;
-  middleName: string;
-  birthDate: Date | null;
-  phone: string;
-  email: string;
-  gender: string;
-  address: string;
-  job: string;
-}
-
-interface Errors {
-  lastName?: string;
-  firstName?: string;
-  middleName?: string;
-  birthDate?: string;
-  phone?: string;
-  email?: string;
-  gender?: string;
-  address?: string;
-  job?: string;
-}
+import { Errors, FormData } from "../../interfaces/index";
+import validate from "../../utils/validate";
 
 const PersonForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -44,25 +22,6 @@ const PersonForm: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<Errors>({});
-
-  const validate = () => {
-    const newErrors: Errors = {};
-    if (!formData.lastName) newErrors.lastName = "Поле является обязательным";
-    if (!formData.firstName) newErrors.firstName = "Поле является обязательным";
-    if (!formData.middleName)
-      newErrors.middleName = "Поле является обязательным";
-    if (!formData.birthDate) newErrors.birthDate = "Поле является обязательным";
-    if (!formData.phone) newErrors.phone = "Поле является обязательным";
-    if (!formData.email) newErrors.email = "Поле является обязательным";
-    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = "Введен некорректный адрес почты";
-    if (!formData.gender) newErrors.gender = "Поле является обязательным";
-    if (!formData.address) newErrors.address = "Поле является обязательным";
-    if (!formData.job) newErrors.job = "Поле является обязательным";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -83,7 +42,7 @@ const PersonForm: React.FC = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (validate()) {
+    if (validate({ formData, setErrors })) {
       alert("Форма валидна, отправляется запрос");
     }
   };
